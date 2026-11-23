@@ -13,7 +13,8 @@ repository maintained by Asha.
 
 ## Current status
 
-- [x] React + Vite project scaffolded (placeholder page, no API calls yet)
+- [x] React + Vite project scaffolded
+- [x] Interface layout: Dashboard, Books, Members, Loans (no API calls yet)
 - [ ] Backend cloned into a sister folder
 - [ ] API layer built from the backend's real `openapi.json`
 - [ ] Books, Members, and Loans pages
@@ -61,13 +62,24 @@ npm run dev      # start the dev server at http://localhost:5173
 ## Project structure
 
 ```
-├── index.html         # HTML entry point
-├── public/            # static files served as-is
-├── src/
-│   ├── main.jsx       # React entry point
-│   ├── App.jsx        # root component
-│   ├── App.css
-│   └── index.css      # global styles
-├── vite.config.js
-└── package.json
+src/
+├── main.jsx              # React entry point + router
+├── App.jsx               # route definitions
+├── config/backend.js     # backend connection flag (false until connected)
+├── data/sampleData.js    # STATIC SAMPLE DATA — visual preview only
+├── components/           # shared UI (layout, table, forms, badges, etc.)
+├── pages/                # Dashboard, Books, Members, Loans, Not Found
+├── styles/               # tokens, base, layout, component styles
+└── utils/format.js       # date, year, and search helpers
 ```
+
+## Preview data and disabled actions
+
+Until the backend is connected:
+
+- A red **Backend not connected** indicator is shown in the top bar.
+- Each list page shows clearly labeled **sample data** and a toggle to
+  preview the **empty state**. Sample field names are placeholders, not
+  the database schema.
+- Add, edit, delete, checkout, and return actions are visibly disabled.
+  Forms open for layout review, but their submit buttons do not work.
